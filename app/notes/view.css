@@ -1,0 +1,638 @@
+.vw {
+  --primary: #041632;
+  --secondary: #0058be;
+  --secondary-fixed: #d8e2ff;
+  --on-secondary-fixed: #001a42;
+  --surface: #f8f9fb;
+  --surface-lowest: #ffffff;
+  --container: #edeef0;
+  --container-low: #f3f4f6;
+  --on-variant: #44474d;
+  --on-bg: #191c1e;
+  --outline-variant: #c5c6ce;
+
+  min-height: 100dvh;
+  background: var(--surface);
+  color: var(--on-bg);
+  font-family: "Hanken Grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+  padding-bottom: 92px; /* 하단 고정 메뉴바 공간 */
+}
+.vw .material-symbols-outlined {
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+  font-size: 20px;
+  line-height: 1;
+  vertical-align: middle;
+}
+
+/* 상단바 */
+.vw-top {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 20px;
+  background: rgba(248, 249, 251, 0.85);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--container);
+}
+.vw-iconbtn {
+  display: inline-flex;
+  color: var(--primary);
+  padding: 4px;
+  border-radius: 8px;
+}
+.vw-brand {
+  font-weight: 700;
+  color: var(--primary);
+  font-size: 16px;
+}
+.vw-edit {
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: var(--primary);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 8px 16px;
+  border-radius: 999px;
+}
+.vw-edit .material-symbols-outlined {
+  font-size: 18px;
+}
+
+/* 본문 */
+.vw-main {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 24px 20px;
+}
+
+.vw-metarow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+.vw-status {
+  font-size: 11px;
+  font-weight: 800;
+  padding: 4px 10px;
+  border-radius: 999px;
+}
+.vw-status.final {
+  background: var(--primary);
+  color: #fff;
+}
+.vw-status.supp {
+  background: var(--container-high, #e7e8ea);
+  color: var(--on-variant);
+  border: 1px solid var(--outline-variant);
+}
+.vw-meta {
+  font-size: 13px;
+  color: var(--on-variant);
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+.vw-meta .material-symbols-outlined {
+  font-size: 16px;
+}
+.vw-meta.dim {
+  color: #9aa0ab;
+}
+
+.vw-title {
+  font-size: 28px;
+  line-height: 1.25;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--primary);
+  margin: 0 0 14px;
+}
+
+.vw-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 22px;
+}
+.vw-chip {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--secondary);
+  background: var(--secondary-fixed);
+  padding: 5px 11px;
+  border-radius: 999px;
+}
+.vw-chip.lecture {
+  background: #eef3ff;
+  border: 1px solid #d8e2ff;
+}
+.vw-chip.ghost {
+  background: transparent;
+  color: var(--on-variant);
+  border: 1px solid var(--outline-variant);
+}
+
+/* 요약 */
+.vw-summary {
+  background: #fff8ec;
+  border: 1px solid #ffe2b0;
+  border-radius: 12px;
+  padding: 16px 18px;
+  margin-bottom: 24px;
+}
+.vw-summary-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 800;
+  color: #8a5a00;
+  margin-bottom: 6px;
+}
+.vw-summary-label .material-symbols-outlined {
+  font-size: 18px;
+  color: #e0a000;
+}
+.vw-summary p {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.7;
+  color: #4a3a1a;
+  white-space: pre-wrap;
+}
+
+/* 본문 마크다운 */
+.vw-content {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #2a2d31;
+  margin-bottom: 28px;
+}
+.vw-content p {
+  margin: 0 0 14px;
+}
+.vw-content h1,
+.vw-content h2,
+.vw-content h3 {
+  color: var(--primary);
+  font-weight: 700;
+  margin: 22px 0 10px;
+  line-height: 1.3;
+}
+.vw-content h1 {
+  font-size: 22px;
+}
+.vw-content h2 {
+  font-size: 19px;
+}
+.vw-content h3 {
+  font-size: 17px;
+}
+.vw-content ul,
+.vw-content ol {
+  padding-left: 22px;
+  margin: 0 0 14px;
+}
+.vw-content li {
+  margin: 4px 0;
+}
+.vw-content a {
+  color: var(--secondary);
+  text-decoration: underline;
+  word-break: break-all;
+}
+.vw-content img {
+  max-width: 100%;
+  border-radius: 10px;
+  border: 1px solid var(--container);
+  margin: 8px 0;
+}
+.vw-content code {
+  background: var(--container-low);
+  padding: 1px 6px;
+  border-radius: 4px;
+  font-size: 14px;
+}
+.vw-content blockquote {
+  border-left: 3px solid var(--outline-variant);
+  margin: 0 0 14px;
+  padding: 4px 14px;
+  color: var(--on-variant);
+}
+
+/* 첨부 */
+.vw-att-sec {
+  border-top: 1px solid var(--container);
+  padding-top: 22px;
+  margin-bottom: 24px;
+}
+.vw-att-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+.vw-att-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--on-variant);
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+.vw-jump {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--on-variant);
+}
+.vw-jump input {
+  width: 56px;
+  padding: 6px 8px;
+  border: 1px solid var(--outline-variant);
+  border-radius: 8px;
+  background: var(--surface-lowest);
+  font-size: 13px;
+  font-family: inherit;
+}
+.vw-jump button {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  border: 0;
+  background: var(--secondary);
+  color: #fff;
+  font-weight: 700;
+  font-size: 12px;
+  padding: 7px 12px;
+  border-radius: 999px;
+  cursor: pointer;
+}
+.vw-jump button .material-symbols-outlined {
+  font-size: 16px;
+}
+.vw-print-btn {
+  background: var(--primary) !important;
+}
+
+/* 인쇄 전용 영역 — 화면에서는 숨김 */
+.vw-print {
+  display: none;
+}
+.vw-jump-err {
+  font-size: 12px;
+  color: #ba1a1a;
+  margin-bottom: 8px;
+}
+.vw-att-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.vw-att {
+  position: relative;
+  border: 1px solid var(--outline-variant);
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--surface-lowest);
+  padding: 0;
+  cursor: pointer;
+}
+.vw-att-no {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  z-index: 2;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 5px;
+  border-radius: 999px;
+  background: rgba(4, 22, 50, 0.85);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 18px;
+  text-align: center;
+}
+.vw-att img {
+  display: block;
+  width: 110px;
+  height: 110px;
+  object-fit: cover;
+}
+.vw-att-file {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 14px 16px;
+  max-width: 220px;
+  color: var(--primary);
+  font-size: 13px;
+  font-weight: 600;
+}
+.vw-att-file span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* 태그 */
+.vw-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.vw-tag {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--secondary);
+  background: var(--secondary-fixed);
+  padding: 5px 12px;
+  border-radius: 999px;
+}
+
+/* 슬라이드 오버레이 */
+.vw-slides {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: rgba(8, 12, 24, 0.92);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.vw-slides-top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 20px;
+  color: #fff;
+}
+.vw-slides-count {
+  font-size: 14px;
+  font-weight: 700;
+  background: rgba(255, 255, 255, 0.15);
+  padding: 4px 12px;
+  border-radius: 999px;
+}
+.vw-slides-name {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.7);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  flex: 1;
+}
+.vw-slides-x {
+  border: 0;
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  width: 36px;
+  height: 36px;
+  border-radius: 999px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.vw-slides-stage {
+  max-width: 92vw;
+  max-height: 76vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.vw-slides-stage img {
+  max-width: 92vw;
+  max-height: 76vh;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+.vw-slides-filecard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 48px 56px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  color: #fff;
+  font-weight: 700;
+}
+.vw-slides-filecard .material-symbols-outlined {
+  font-size: 56px;
+}
+.vw-slides-filecard small {
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.7);
+}
+.vw-slides-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  border: 0;
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  width: 48px;
+  height: 48px;
+  border-radius: 999px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.vw-slides-nav:hover {
+  background: rgba(255, 255, 255, 0.28);
+}
+.vw-slides-nav.prev {
+  left: 16px;
+}
+.vw-slides-nav.next {
+  right: 16px;
+}
+.vw-slides-nav .material-symbols-outlined {
+  font-size: 30px;
+}
+.vw-slides-dots {
+  position: absolute;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+}
+.vw-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 999px;
+  border: 0;
+  background: rgba(255, 255, 255, 0.35);
+  cursor: pointer;
+  padding: 0;
+}
+.vw-dot.on {
+  background: #fff;
+  width: 22px;
+}
+
+/* 오디오 첨부 (m4a 등) 인라인 플레이어 */
+.vw-att-audio {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 12px 14px;
+  width: 260px;
+  max-width: 80vw;
+  cursor: default;
+}
+.vw-att-audioname {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--primary);
+  font-size: 13px;
+  font-weight: 600;
+}
+.vw-att-audioname span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.vw-att-audioname .material-symbols-outlined {
+  font-size: 18px;
+}
+.vw-att-audio audio {
+  width: 100%;
+  height: 36px;
+}
+.vw-slides-audiocard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  padding: 28px 24px;
+  border-radius: 16px;
+  background: #fff;
+  color: var(--primary);
+  font-weight: 600;
+  max-width: 90vw;
+}
+.vw-slides-audiocard .material-symbols-outlined {
+  font-size: 40px;
+}
+.vw-slides-audiocard audio {
+  width: min(420px, 80vw);
+}
+
+/* ===== 인쇄 ===== */
+@media print {
+  /* 화면 UI는 모두 숨기고 인쇄 영역만 출력 */
+  .vw-top,
+  .vw-main,
+  .vw-slides,
+  .vw-print-btn,
+  .bnav {
+    display: none !important;
+  }
+  .vw {
+    padding: 0 !important;
+    background: #fff !important;
+  }
+  .vw-print {
+    display: block !important;
+  }
+  .vw-print-head {
+    margin-bottom: 16px;
+  }
+  .vw-print-head h1 {
+    font-size: 20px;
+    margin: 0 0 4px;
+  }
+  .vw-print-head span {
+    font-size: 12px;
+    color: #555;
+  }
+  .vw-print-item {
+    /* 첨부 한 개당 한 페이지 */
+    page-break-after: always;
+    break-after: page;
+    text-align: center;
+  }
+  .vw-print-item:last-child {
+    page-break-after: auto;
+    break-after: auto;
+  }
+  .vw-print-no {
+    font-size: 12px;
+    color: #333;
+    margin-bottom: 8px;
+    text-align: left;
+    word-break: break-all;
+  }
+  .vw-print-item img {
+    max-width: 100%;
+    max-height: 92vh;
+    object-fit: contain;
+  }
+  .vw-print-file {
+    font-size: 12px;
+    color: #444;
+    word-break: break-all;
+    text-align: left;
+  }
+}
+
+/* === 도해(mermaid) 섹션 === */
+.vw-dia-sec {
+  margin-top: 28px;
+}
+.vw-dia-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 12px;
+}
+.vw-dia {
+  margin: 0;
+  padding: 16px;
+  border: 1px solid var(--line, #e5e7eb);
+  border-radius: 14px;
+  background: var(--panel, #fff);
+}
+.vw-dia-cap {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text, #111);
+  margin-bottom: 10px;
+}
+
+/* 슬라이드 뷰어 내 마크다운 카드 */
+.vw-slides-mdcard {
+  background: #fff;
+  border-radius: 14px;
+  padding: 28px 32px;
+  max-width: 820px;
+  width: 100%;
+  max-height: 80vh;
+  overflow-y: auto;
+  text-align: left;
+}

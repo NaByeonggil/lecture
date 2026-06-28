@@ -1,0 +1,74 @@
+.bnav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background: #f8f9fb;
+  border-top: 1px solid #edeef0;
+  padding: 8px 12px calc(8px + env(safe-area-inset-bottom, 0px));
+}
+
+.bnav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  color: #44474d;
+  font-size: 12px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: transform 0.1s;
+}
+.bnav-item:active {
+  transform: scale(0.94);
+}
+.bnav-item.active {
+  color: #0058be;
+  font-weight: 700;
+}
+.bnav-item .material-symbols-outlined {
+  font-size: 24px;
+  line-height: 1;
+}
+.bnav-label {
+  margin-top: 1px;
+}
+
+/* 가운데 작성 버튼 (떠오른 FAB) */
+.bnav-write {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  margin-top: -28px;
+  transition: transform 0.1s;
+}
+.bnav-write:active {
+  transform: scale(0.92);
+}
+.bnav-write-circle {
+  width: 56px;
+  height: 56px;
+  border-radius: 999px;
+  background: #041632;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 18px -6px rgba(4, 22, 50, 0.55);
+  border: 4px solid #f8f9fb;
+}
+.bnav-write-circle .material-symbols-outlined {
+  font-size: 28px;
+}
+.bnav-write-label {
+  margin-top: 2px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #041632;
+}

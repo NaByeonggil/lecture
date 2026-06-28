@@ -1,0 +1,265 @@
+
+<!DOCTYPE html><html class="light" lang="ko"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Study Archive - 노트 작성</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary": "#211500",
+                    "on-surface-variant": "#44474d",
+                    "inverse-primary": "#b7c7eb",
+                    "on-primary-fixed": "#091b37",
+                    "surface-container-low": "#f3f4f6",
+                    "on-error": "#ffffff",
+                    "surface-container-lowest": "#ffffff",
+                    "on-tertiary-fixed": "#271900",
+                    "on-tertiary": "#ffffff",
+                    "primary": "#041632",
+                    "surface-container-highest": "#e1e2e4",
+                    "surface-dim": "#d9dadc",
+                    "on-primary": "#ffffff",
+                    "inverse-surface": "#2e3132",
+                    "on-secondary-fixed-variant": "#004395",
+                    "surface": "#f8f9fb",
+                    "surface-container": "#edeef0",
+                    "secondary": "#0058be",
+                    "on-tertiary-container": "#ac8e5b",
+                    "surface-variant": "#e1e2e4",
+                    "on-background": "#191c1e",
+                    "tertiary-container": "#3b2800",
+                    "on-primary-fixed-variant": "#374765",
+                    "primary-fixed": "#d7e2ff",
+                    "outline": "#75777e",
+                    "on-secondary": "#ffffff",
+                    "secondary-fixed-dim": "#adc6ff",
+                    "surface-tint": "#4f5e7e",
+                    "outline-variant": "#c5c6ce",
+                    "surface-container-high": "#e7e8ea",
+                    "on-error-container": "#93000a",
+                    "inverse-on-surface": "#f0f1f3",
+                    "secondary-container": "#2170e4",
+                    "secondary-fixed": "#d8e2ff",
+                    "tertiary-fixed": "#ffdea7",
+                    "on-secondary-fixed": "#001a42",
+                    "on-primary-container": "#8393b5",
+                    "error-container": "#ffdad6",
+                    "tertiary-fixed-dim": "#e3c28a",
+                    "background": "#f8f9fb",
+                    "error": "#ba1a1a",
+                    "primary-fixed-dim": "#b7c7eb",
+                    "primary-container": "#1b2b48",
+                    "surface-bright": "#f8f9fb",
+                    "on-secondary-container": "#fefcff",
+                    "on-surface": "#191c1e",
+                    "on-tertiary-fixed-variant": "#594317"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "sm": "8px",
+                    "margin-mobile": "20px",
+                    "md": "16px",
+                    "margin-tablet": "40px",
+                    "base": "4px",
+                    "xl": "32px",
+                    "xs": "4px",
+                    "lg": "24px",
+                    "gutter": "16px"
+            },
+            "fontFamily": {
+                    "headline-lg-mobile": ["Hanken Grotesk"],
+                    "label-md": ["Hanken Grotesk"],
+                    "body-sm": ["Hanken Grotesk"],
+                    "headline-md": ["Hanken Grotesk"],
+                    "label-sm": ["Hanken Grotesk"],
+                    "headline-lg": ["Hanken Grotesk"],
+                    "body-lg": ["Hanken Grotesk"],
+                    "body-md": ["Hanken Grotesk"]
+            },
+            "fontSize": {
+                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "label-md": ["14px", {"lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+                    "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "label-sm": ["12px", {"lineHeight": "14px", "fontWeight": "500"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Hanken Grotesk', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: #3B82F6 !important;
+            box-shadow: 0 0 0 1px #3B82F6;
+        }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #e1e2e4; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #c5c6ce; }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen pb-32">
+<!-- TopAppBar -->
+<header class="bg-surface dark:bg-background docked full-width top-0 border-b border-surface-container dark:border-outline-variant flex justify-between items-center w-full px-margin-mobile py-md sticky z-40">
+<div class="flex items-center gap-md">
+<button class="p-base hover:bg-surface-container-low dark:hover:bg-surface-container-highest transition-colors duration-200 rounded-lg">
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed">close</span>
+</button>
+<h1 class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed">Study Archive</h1>
+</div>
+<div class="flex items-center gap-sm">
+<span class="font-label-sm text-label-sm text-on-surface-variant">편집 중</span>
+<div class="w-8 h-8 rounded-full bg-primary-fixed flex items-center justify-center text-on-primary-fixed font-bold text-xs">JD</div>
+</div>
+</header>
+<main class="max-w-4xl mx-auto px-margin-mobile pt-lg">
+<form class="space-y-xl"><!-- Title Section -->
+<section class="space-y-base p-lg bg-surface-container-lowest rounded-xl border border-surface-container">
+<label class="font-label-md text-label-md text-on-surface-variant" for="note-title">노트 제목</label>
+<input class="w-full bg-transparent border-none p-0 font-headline-lg-mobile text-headline-lg-mobile transition-all placeholder:text-on-surface-variant/40 focus:ring-0" id="note-title" placeholder="강의 제목을 입력하세요" type="text">
+</section>
+<!-- Metadata Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter p-lg bg-surface-container-low/50 rounded-xl">
+<div class="space-y-base">
+<label class="font-label-md text-label-md text-on-surface-variant" for="note-date">날짜</label>
+<input class="w-full bg-surface-container-low border border-outline-variant rounded-lg p-md font-body-md text-body-md transition-all" id="note-date" type="date">
+</div>
+<div class="space-y-base">
+<label class="font-label-md text-label-md text-on-surface-variant" for="note-subject">과목</label>
+<div class="relative">
+<select class="w-full appearance-none bg-surface-container-low border border-outline-variant rounded-lg p-md font-body-md text-body-md transition-all" id="note-subject">
+<option value="">과목 선택</option>
+<option value="math">수학</option>
+<option value="science">과학</option>
+<option value="history">역사</option>
+<option value="cs">컴퓨터 과학</option>
+</select>
+<span class="material-symbols-outlined absolute right-md top-1/2 -translate-y-1/2 pointer-events-none text-on-surface-variant">expand_more</span>
+</div>
+</div>
+<div class="space-y-base">
+<label class="font-label-md text-label-md text-on-surface-variant" for="note-topic">주제</label>
+<input class="w-full bg-surface-container-low border border-outline-variant rounded-lg p-md font-body-md text-body-md transition-all" id="note-topic" placeholder="예: 미분과 적분" type="text">
+</div>
+</div>
+<!-- Content Areas -->
+<section class="space-y-xl">
+<div class="space-y-base">
+<label class="font-label-md text-label-md text-on-surface-variant" for="note-summary">요약 (Summary)</label>
+<textarea class="w-full bg-surface-container-low border border-outline-variant rounded-lg p-md font-body-md text-body-md transition-all resize-none" id="note-summary" placeholder="강의의 핵심 내용을 간단히 요약하세요..." rows="3"></textarea>
+</div>
+<div class="space-y-base">
+<label class="font-label-md text-label-md text-on-surface-variant" for="note-details">상세 내용 (Detailed Notes)</label>
+<div class="bg-surface border border-outline-variant rounded-lg shadow-sm overflow-hidden">
+<div class="flex items-center gap-xs p-xs bg-surface-container-low border-b border-outline-variant">
+<div class="flex items-center gap-xs px-sm">
+<button class="p-xs hover:bg-surface-container-highest rounded text-on-surface-variant transition-colors" type="button"><span class="material-symbols-outlined text-[20px]">format_bold</span></button>
+<button class="p-xs hover:bg-surface-container-highest rounded text-on-surface-variant transition-colors" type="button"><span class="material-symbols-outlined text-[20px]">format_italic</span></button>
+<button class="p-xs hover:bg-surface-container-highest rounded text-on-surface-variant transition-colors" type="button"><span class="material-symbols-outlined text-[20px]">format_list_bulleted</span></button>
+</div>
+<div class="w-px h-6 bg-outline-variant mx-xs"></div>
+<div class="flex items-center gap-xs px-sm">
+<button class="p-xs hover:bg-surface-container-highest rounded text-on-surface-variant transition-colors" type="button"><span class="material-symbols-outlined text-[20px]">attach_file</span></button>
+<button class="p-xs hover:bg-surface-container-highest rounded text-on-surface-variant transition-colors" type="button"><span class="material-symbols-outlined text-[20px]">image</span></button>
+<button class="p-xs hover:bg-surface-container-highest rounded text-on-surface-variant transition-colors" type="button"><span class="material-symbols-outlined text-[20px]">link</span></button>
+</div>
+</div>
+<textarea class="w-full border-none p-md font-body-md text-body-md transition-all resize-none focus:ring-0" id="note-details" placeholder="학습 내용을 상세히 기록하세요..." rows="15"></textarea>
+</div>
+</div>
+</section>
+<!-- Tag Input -->
+<section class="space-y-base">
+<label class="font-label-md text-label-md text-on-surface-variant" for="note-tags">태그</label>
+<div class="flex flex-wrap gap-sm items-center p-md bg-surface-container-low border border-outline-variant rounded-lg">
+<div class="flex items-center gap-xs bg-secondary-fixed text-on-secondary-fixed px-sm py-xs rounded-full font-label-sm text-label-sm">
+#시험대비
+<button class="material-symbols-outlined text-[14px]" type="button">close</button>
+</div>
+<div class="flex items-center gap-xs bg-secondary-fixed text-on-secondary-fixed px-sm py-xs rounded-full font-label-sm text-label-sm">
+#복습필수
+<button class="material-symbols-outlined text-[14px]" type="button">close</button>
+</div>
+<input class="flex-1 bg-transparent border-none p-0 focus:ring-0 font-body-sm text-body-sm" id="note-tags" placeholder="태그 입력..." type="text">
+</div>
+</section></form>
+</main>
+<!-- Fixed Action Bar -->
+<div class="fixed bottom-0 left-0 right-0 bg-surface/80 backdrop-blur-md border-t border-surface-container dark:border-outline-variant z-50">
+<div class="max-w-4xl mx-auto px-margin-mobile py-md flex flex-col sm:flex-row items-center gap-md"><button class="w-full sm:w-auto flex-1 h-12 flex items-center justify-center gap-sm px-lg rounded-full bg-surface-container-high border border-outline-variant text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-highest transition-all active:scale-95" type="button">
+<span class="material-symbols-outlined">description</span>
+Save as Supplement
+</button>
+<button class="w-full sm:w-auto flex-1 h-12 flex items-center justify-center gap-sm px-lg rounded-full bg-primary text-white font-label-md text-label-md hover:opacity-90 transition-all active:scale-95 shadow-lg" type="button">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+Save as Final
+</button></div>
+</div>
+<!-- Background Decorative Element (Subtle Shader feel) -->
+
+<script>
+        // Simple Interaction logic
+        document.querySelectorAll('button').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                if (e.currentTarget.textContent.includes('Save')) {
+                    const ripple = document.createElement('div');
+                    ripple.className = 'absolute inset-0 bg-white/20 rounded-full animate-ping pointer-events-none';
+                    e.currentTarget.appendChild(ripple);
+                    setTimeout(() => ripple.remove(), 600);
+                    
+                    // Interaction logic would go here
+                    const isFinal = e.currentTarget.textContent.includes('Final');
+                    console.log(isFinal ? 'Saving as Final...' : 'Saving as Supplement...');
+                }
+            });
+        });
+
+        // Date picker auto-set to today
+        const dateInput = document.getElementById('note-date');
+        if (dateInput) {
+            const today = new Date().toISOString().split('T')[0];
+            dateInput.value = today;
+        }
+
+        // Tag behavior simulation
+        const tagInput = document.getElementById('note-tags');
+        tagInput.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                const tagText = tagInput.value.trim();
+                if (tagText) {
+                    const newTag = document.createElement('div');
+                    newTag.className = 'flex items-center gap-xs bg-secondary-fixed text-on-secondary-fixed px-sm py-xs rounded-full font-label-sm text-label-sm';
+                    newTag.innerHTML = `#${tagText}<button type="button" class="material-symbols-outlined text-[14px]">close</button>`;
+                    tagInput.parentElement.insertBefore(newTag, tagInput);
+                    tagInput.value = '';
+                    
+                    newTag.querySelector('button').addEventListener('click', () => newTag.remove());
+                }
+            }
+        });
+    </script>
+
+
+</body></html>
