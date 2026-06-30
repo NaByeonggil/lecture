@@ -1,0 +1,211 @@
+<!DOCTYPE html><html class="light" lang="ko" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>VitalTrack - 일일 섭취 체크리스트</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-error": "#ffffff",
+                    "secondary-fixed": "#d8e2ff",
+                    "surface-tint": "#006c49",
+                    "on-surface-variant": "#3c4a42",
+                    "tertiary-fixed": "#d8e5e2",
+                    "tertiary-container": "#98a5a3",
+                    "surface-container-low": "#eff4ff",
+                    "secondary-container": "#2170e4",
+                    "outline": "#6c7a71",
+                    "primary-fixed-dim": "#4edea3",
+                    "inverse-primary": "#4edea3",
+                    "surface-container": "#e5eeff",
+                    "on-error-container": "#93000a",
+                    "tertiary": "#55615f",
+                    "primary-fixed": "#6ffbbe",
+                    "on-primary-container": "#00422b",
+                    "on-primary-fixed-variant": "#005236",
+                    "surface-container-lowest": "#ffffff",
+                    "surface": "#f8f9ff",
+                    "on-tertiary-fixed": "#121e1c",
+                    "secondary-fixed-dim": "#adc6ff",
+                    "background": "#f8f9ff",
+                    "error-container": "#ffdad6",
+                    "surface-bright": "#f8f9ff",
+                    "on-primary-fixed": "#002113",
+                    "on-secondary-fixed": "#001a42",
+                    "on-secondary-fixed-variant": "#004395",
+                    "inverse-on-surface": "#eaf1ff",
+                    "on-tertiary-fixed-variant": "#3d4947",
+                    "inverse-surface": "#213145",
+                    "on-tertiary": "#ffffff",
+                    "surface-container-high": "#dce9ff",
+                    "on-background": "#0b1c30",
+                    "primary-container": "#10b981",
+                    "on-primary": "#ffffff",
+                    "primary": "#006c49",
+                    "surface-container-highest": "#d3e4fe",
+                    "tertiary-fixed-dim": "#bcc9c6",
+                    "on-tertiary-container": "#2f3b39",
+                    "outline-variant": "#bbcabf",
+                    "error": "#ba1a1a",
+                    "on-surface": "#0b1c30",
+                    "surface-dim": "#cbdbf5",
+                    "secondary": "#0058be",
+                    "surface-variant": "#d3e4fe",
+                    "on-secondary-container": "#fefcff",
+                    "on-secondary": "#ffffff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter": "16px",
+                    "xl": "32px",
+                    "sm": "8px",
+                    "margin-desktop": "40px",
+                    "lg": "24px",
+                    "xs": "4px",
+                    "md": "16px",
+                    "base": "4px",
+                    "margin-mobile": "20px"
+            },
+            "fontFamily": {
+                    "label-md": ["Inter"],
+                    "body-sm": ["Inter"],
+                    "headline-lg-mobile": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "headline-md": ["Inter"],
+                    "headline-lg": ["Inter"],
+                    "body-md": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "headline-sm": ["Inter"]
+            },
+            "fontSize": {
+                    "label-md": ["14px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "headline-lg-mobile": ["26px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .progress-ring-circle {
+            transition: stroke-dashoffset 0.6s ease-in-out;
+            transform: rotate(-90deg);
+            transform-origin: 50% 50%;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(226, 232, 240, 0.5);
+        }
+    </style>
+<style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+<body data-nutr-page="today" class="bg-background text-on-background font-body-md min-h-screen pb-24">
+<!-- Top App Bar -->
+<header class="bg-surface dark:bg-surface-dim shadow-sm w-full top-0 sticky z-50 flex items-center justify-between px-margin-mobile h-14">
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-primary dark:text-primary-fixed-dim hover:opacity-80 transition-opacity active:scale-95 transition-transform duration-200">menu</button>
+<h1 class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed-dim">나희윤 영양소 챙기기</h1>
+</div>
+<div class="w-8 h-8 rounded-full overflow-hidden border-2 border-primary-container">
+<img class="w-full h-full object-cover" data-alt="A professional headshot of a smiling young woman with a clear complexion, sitting in a bright, modern wellness studio with soft morning sunlight streaming in." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAtdQylViIXcjMjB_rCu583UodEnrvW0xu9hQ7raKYVyKRUHKJ3183wDVvHiywsNGWbGZQJySqN1TtUDI-O8BshQ52vr1FW92xH4Rl2tNRUSgC4FP6vr2C1WnJ_KHfU_4TlF9J97xiTr04U8hU2tVpFFZWG_ES47A3lvdYi6yBRxjnBe7uBkSfyqDvNkG6a0UQWqjhOebKUvzlAnsmAVAjJbbpEcx1LwetG6BetxK9lr8WdYSsQkKaWY6OMIlTF8k-QwTRUmna6vA">
+</div>
+</header>
+<main class="px-margin-mobile pt-lg flex flex-col gap-lg max-w-2xl mx-auto">
+<!-- Dashboard Header & Progress -->
+<section class="glass-card rounded-xl p-lg flex items-center justify-between gap-md shadow-sm">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">오늘의 목표</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface" id="current-date">2026년 6월 29일</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-xs">오늘 <span class="font-bold text-primary" id="total-count">5</span>개 중 <span class="font-bold text-primary" id="completed-count">3</span>개를 복용했습니다.</p>
+</div>
+<div class="relative flex items-center justify-center w-24 h-24">
+<svg class="w-full h-full">
+<circle class="text-surface-container stroke-current" cx="48" cy="48" fill="transparent" r="38" stroke-width="8"></circle>
+<circle class="text-primary stroke-current progress-ring-circle" cx="48" cy="48" fill="transparent" id="progress-circle" r="38" stroke-dasharray="238.76" stroke-dashoffset="95.5" stroke-linecap="round" stroke-width="8"></circle>
+</svg>
+<span class="absolute font-headline-sm text-headline-sm text-primary" id="percentage-text">60%</span>
+</div>
+</section>
+<!-- Supplement Sections -->
+<div id="today-list" class="flex flex-col gap-lg"></div>
+<!-- Weekly Insight Preview -->
+<section class="mt-lg">
+<h3 class="font-label-md text-label-md text-on-surface-variant mb-md uppercase tracking-wider">주간 성과</h3>
+<div class="grid grid-cols-7 gap-xs h-32 items-end">
+<div class="flex flex-col items-center gap-sm">
+<div class="w-full bg-primary-container/40 h-[70%] rounded-t-lg"></div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">월</span>
+</div>
+<div class="flex flex-col items-center gap-sm">
+<div class="w-full bg-primary-container/40 h-[90%] rounded-t-lg"></div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">화</span>
+</div>
+<div class="flex flex-col items-center gap-sm">
+<div class="w-full bg-primary-container/40 h-[85%] rounded-t-lg"></div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">수</span>
+</div>
+<div class="flex flex-col items-center gap-sm">
+<div class="w-full bg-primary h-[60%] rounded-t-lg"></div>
+<span class="font-label-sm text-label-sm font-bold text-primary">목</span>
+</div>
+<div class="flex flex-col items-center gap-sm">
+<div class="w-full bg-surface-container-high h-[10%] rounded-t-lg"></div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">금</span>
+</div>
+<div class="flex flex-col items-center gap-sm">
+<div class="w-full bg-surface-container-high h-[10%] rounded-t-lg"></div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">토</span>
+</div>
+<div class="flex flex-col items-center gap-sm">
+<div class="w-full bg-surface-container-high h-[10%] rounded-t-lg"></div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">일</span>
+</div>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-2 pb-4 pt-2 bg-surface dark:bg-surface-dim shadow-[0_-4px_10px_rgba(0,0,0,0.04)] rounded-t-xl">
+<a class="flex flex-col items-center justify-center bg-primary-container dark:bg-primary text-on-primary-container dark:text-on-primary rounded-full px-4 py-1 active:scale-90 transition-transform duration-150" href="today.html">
+<span class="material-symbols-outlined">event_upcoming</span>
+<span class="font-label-sm text-label-sm">오늘</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant px-4 py-1 hover:bg-surface-container-high dark:hover:bg-surface-container-highest rounded-full active:scale-90 transition-transform duration-150" href="storage.html">
+<span class="material-symbols-outlined">pill</span>
+<span class="font-label-sm text-label-sm">보관함</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant px-4 py-1 hover:bg-surface-container-high dark:hover:bg-surface-container-highest rounded-full active:scale-90 transition-transform duration-150" href="register.html">
+<span class="material-symbols-outlined">add_circle</span>
+<span class="font-label-sm text-label-sm">등록</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant px-4 py-1 hover:bg-surface-container-high dark:hover:bg-surface-container-highest rounded-full active:scale-90 transition-transform duration-150" href="stats.html">
+<span class="material-symbols-outlined">analytics</span>
+<span class="font-label-sm text-label-sm">통계</span>
+</a>
+</nav>
+
+<script src="/screens/nutrition-app.js" defer></script>
+</body></html>

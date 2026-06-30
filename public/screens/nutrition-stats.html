@@ -1,0 +1,226 @@
+<!DOCTYPE html><html class="light" lang="ko"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>VitalTrack - 영양 분석</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(226, 232, 240, 0.8);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-error": "#ffffff",
+                        "secondary-fixed": "#d8e2ff",
+                        "surface-tint": "#006c49",
+                        "on-surface-variant": "#3c4a42",
+                        "tertiary-fixed": "#d8e5e2",
+                        "tertiary-container": "#98a5a3",
+                        "surface-container-low": "#eff4ff",
+                        "secondary-container": "#2170e4",
+                        "outline": "#6c7a71",
+                        "primary-fixed-dim": "#4edea3",
+                        "inverse-primary": "#4edea3",
+                        "surface-container": "#e5eeff",
+                        "on-error-container": "#93000a",
+                        "tertiary": "#55615f",
+                        "primary-fixed": "#6ffbbe",
+                        "on-primary-container": "#00422b",
+                        "on-primary-fixed-variant": "#005236",
+                        "surface-container-lowest": "#ffffff",
+                        "surface": "#f8f9ff",
+                        "on-tertiary-fixed": "#121e1c",
+                        "secondary-fixed-dim": "#adc6ff",
+                        "background": "#f8f9ff",
+                        "error-container": "#ffdad6",
+                        "surface-bright": "#f8f9ff",
+                        "on-primary-fixed": "#002113",
+                        "on-secondary-fixed": "#001a42",
+                        "on-secondary-fixed-variant": "#004395",
+                        "inverse-on-surface": "#eaf1ff",
+                        "on-tertiary-fixed-variant": "#3d4947",
+                        "inverse-surface": "#213145",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-high": "#dce9ff",
+                        "on-background": "#0b1c30",
+                        "primary-container": "#10b981",
+                        "on-primary": "#ffffff",
+                        "primary": "#006c49",
+                        "surface-container-highest": "#d3e4fe",
+                        "tertiary-fixed-dim": "#bcc9c6",
+                        "on-tertiary-container": "#2f3b39",
+                        "outline-variant": "#bbcabf",
+                        "error": "#ba1a1a",
+                        "on-surface": "#0b1c30",
+                        "surface-variant": "#d3e4fe",
+                        "on-secondary-container": "#fefcff",
+                        "on-secondary": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "16px",
+                        "xl": "32px",
+                        "sm": "8px",
+                        "margin-desktop": "40px",
+                        "lg": "24px",
+                        "xs": "4px",
+                        "md": "16px",
+                        "base": "4px",
+                        "margin-mobile": "20px"
+                    },
+                    "fontFamily": {
+                        "label-md": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-sm": ["Inter"]
+                    },
+                    "fontSize": {
+                        "label-md": ["14px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "headline-lg-mobile": ["26px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+<body data-nutr-page="stats" class="bg-background text-on-background font-body-md min-h-screen pb-32">
+<!-- Top App Bar -->
+<header class="w-full top-0 sticky z-40 bg-surface dark:bg-surface-dim shadow-sm flex items-center justify-between px-margin-mobile h-14">
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-primary dark:text-primary-fixed-dim hover:opacity-80 transition-opacity active:scale-95 transition-transform duration-200">menu</button>
+<h1 class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed-dim">영양소 챙기기</h1>
+</div>
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-surface-container-high flex items-center justify-center overflow-hidden border border-outline-variant">
+<img alt="프로필 이미지" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBNRKwKuIdmS5CeXAu4hWMPXrUeUNly2ZAJA-8kjkxc3a2Uz-3L6rdUsKYSIE_7EVxW3uAwoGeqxYF0QKcaf4elHpCqb6u7Ha3iQ81ZBF6VbBm8qdCSGqkqKL3PBxClDaUYe9CdV4u5aklqkeG0kO8_pXMI0uDKNetJFZVF-FCKXP446172TpY-iDgGgUi8ykyXzJICXXIL9OSa8W6aJcCBKnLuAJ1zjREQfACPekkikz6hkin0HoZWp4HRxEBGiv2IqytA5miX-A">
+</div>
+</div>
+</header>
+<main class="px-margin-mobile pt-lg max-w-4xl mx-auto">
+<!-- Header Section -->
+<section class="mb-xl">
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface mb-xs">영양 분석</h2>
+<p class="font-body-md text-on-surface-variant">최근 24시간 동안의 섭취 분석 결과입니다.</p>
+</section>
+<!-- Insights Summary Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-md mb-xl">
+<!-- Daily Goal Card -->
+<div class="md:col-span-2 glass-card p-lg rounded-xl shadow-sm flex items-center gap-lg">
+<div class="relative w-24 h-24 shrink-0">
+<svg class="w-full h-full -rotate-90">
+<circle class="text-surface-container-highest" cx="48" cy="48" fill="transparent" r="40" stroke="currentColor" stroke-width="8"></circle>
+<circle id="adherence-ring" class="text-primary" cx="48" cy="48" fill="transparent" r="40" stroke="currentColor" stroke-dasharray="251.2" stroke-dashoffset="62.8" stroke-width="8"></circle>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center">
+<span id="adherence-score" class="font-headline-sm text-headline-sm">0%</span>
+</div>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">복용 꾸준함 점수</h3>
+<p id="adherence-sub" class="font-body-sm text-on-surface-variant">최근 7일 복용률입니다.</p>
+</div>
+</div>
+<!-- Focus Item Card -->
+<div class="bg-primary-container text-on-primary-container p-lg rounded-xl flex flex-col justify-between">
+<span class="material-symbols-outlined text-[32px]">lightbulb</span>
+<div>
+<p class="font-label-sm text-label-sm uppercase opacity-80 mb-xs">주요 분석</p>
+<p class="font-body-md font-semibold">최적의 회복 목표를 위해 마그네슘 섭취량을 50mg 늘려보세요.</p>
+</div>
+</div>
+</div>
+<!-- Nutrient Breakdown List -->
+<div class="space-y-md">
+<h3 class="font-headline-sm text-headline-sm text-on-surface px-xs">일일 상세 분석</h3>
+<div id="nutrient-list" class="space-y-md"></div>
+</div>
+<!-- Education Component -->
+<div class="mt-xl p-lg rounded-2xl bg-surface-container-low border border-outline-variant/30 flex flex-col md:flex-row gap-lg items-center">
+<div class="w-32 h-32 rounded-xl overflow-hidden shrink-0 shadow-lg">
+<img alt="마그네슘 관련 이미지" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCi9vkbX6xL5oI534WE6fr_lsxn4jC1IcKVMt0vFcGiVGDJaUi1AktPJJjn7LD4iANziS2APmkhuyJUw9R5P6ljEwF8vOTit2DBJSg7beCXtCHIfA7eyNLppWnn2CmXEji4wFhzHH0HQvwDwKsX8dl2uYgX3pYDOu-B6KxgSvEBcXfm6UxeMfhaQXytDP9-6Y3WWnxyJJfCETv2KvSYGhbJaJhRvJq9RtLL-VFokX6p6aivEI3Go3i2XJ-mjuKB_-2IbhL7LCjYZg">
+</div>
+<div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface mb-sm">마그네슘이 중요한 이유</h4>
+<p class="font-body-md text-on-surface-variant mb-md">마그네슘은 에너지 생성과 근육 기능을 포함하여 인체 내 300가지 이상의 효소 반응에서 중요한 역할을 합니다.</p>
+<button class="px-lg py-sm bg-primary text-on-primary rounded-full font-label-md hover:opacity-90 transition-opacity active:scale-95 duration-200">
+                    기사 읽기
+                </button>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-2 pb-4 pt-2 bg-surface dark:bg-surface-dim shadow-[0_-4px_10px_rgba(0,0,0,0.04)]">
+<div class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant px-4 py-1 hover:bg-surface-container-high dark:hover:bg-surface-container-highest rounded-full transition-colors active:scale-90 duration-150 cursor-pointer">
+<span class="material-symbols-outlined">event_upcoming</span>
+<span class="font-label-sm text-label-sm">오늘</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant px-4 py-1 hover:bg-surface-container-high dark:hover:bg-surface-container-highest rounded-full transition-colors active:scale-90 duration-150 cursor-pointer">
+<span class="material-symbols-outlined">pill</span>
+<span class="font-label-sm text-label-sm">보관함</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant px-4 py-1 hover:bg-surface-container-high dark:hover:bg-surface-container-highest rounded-full transition-colors active:scale-90 duration-150 cursor-pointer">
+<span class="material-symbols-outlined">add_circle</span>
+<span class="font-label-sm text-label-sm">추가</span>
+</div>
+<!-- ACTIVE TAB -->
+<div class="flex flex-col items-center justify-center bg-primary-container dark:bg-primary text-on-primary-container dark:text-on-primary rounded-full px-4 py-1 active:scale-90 transition-transform duration-150 cursor-pointer shadow-sm">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">analytics</span>
+<span class="font-label-sm text-label-sm">통계</span>
+</div>
+</nav>
+<script>
+        // Simple micro-interaction for cards
+        document.querySelectorAll('.glass-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-2px)';
+                card.style.transition = 'transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1)';
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0)';
+            });
+        });
+    </script>
+
+
+<script src="/screens/nutrition-app.js" defer></script>
+</body></html>
