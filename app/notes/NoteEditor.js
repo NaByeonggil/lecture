@@ -62,6 +62,7 @@ export default function NoteEditor({ initial }) {
   const [uploading, setUploading] = useState(false);
   const imageInputRef = useRef(null);
   const fileInputRef = useRef(null);
+  const audioInputRef = useRef(null);
 
   // 첨부 슬라이드 뷰어
   const [slideIndex, setSlideIndex] = useState(null); // null=닫힘
@@ -112,7 +113,7 @@ export default function NoteEditor({ initial }) {
 
   // --- 첨부/이미지 업로드 (Vercel Blob 클라이언트 직접 업로드) ---
   // 브라우저 → Blob 으로 바로 올려 서버리스 4.5MB 본문 한도를 우회한다.
-  async function uploadFile(file, asImage) {
+  async function uploadFile(file, kind = "file") {
     if (!file) return;
     setUploading(true);
     setToast(null);
@@ -134,10 +135,17 @@ export default function NoteEditor({ initial }) {
       setAttachments((a) => [...a, att]);
 
       // 본문에 마크다운으로 삽입
-      const md = asImage ? `\n![${att.name}](${att.url})\n` : `\n[📎 ${att.name}](${att.url})\n`;
+      const label =
+        kind === "image" ? "이미지" : kind === "audio" ? "음성" : "파일";
+      const md =
+        kind === "image"
+          ? `\n![${att.name}](${att.url})\n`
+          : kind === "audio"
+          ? `\n[🎧 ${att.name}](${att.url})\n`
+          : `\n[📎 ${att.name}](${att.url})\n`;
       setContent((c) => (c || "") + md);
 
-      setToast({ type: "ok", msg: `${asImage ? "이미지" : "파일"} 업로드 완료 ✓` });
+      setToast({ type: "ok", msg: `${label} 업로드 완료 ✓` });
     } catch (e) {
       setToast({ type: "err", msg: e.message });
     } finally {
@@ -393,6 +401,15 @@ export default function NoteEditor({ initial }) {
               >
                 <Icon name="image" />
               </button>
+              <button
+                className="ed-tool"
+                type="button"
+                title="음성 파일 첨부"
+                disabled={uploading}
+                onClick={() => audioInputRef.current?.click()}
+              >
+                <Icon name="mic" />
+              </button>
               <button className="ed-tool" type="button" onClick={() => prefix("[링크](url) ")} title="링크">
                 <Icon name="link" />
               </button>
@@ -406,7 +423,7 @@ export default function NoteEditor({ initial }) {
                 onChange={(e) => {
                   const f = e.target.files?.[0];
                   e.target.value = "";
-                  uploadFile(f, true);
+                  uploadFile(f, "image");
                 }}
               />
               <input
@@ -416,7 +433,18 @@ export default function NoteEditor({ initial }) {
                 onChange={(e) => {
                   const f = e.target.files?.[0];
                   e.target.value = "";
-                  uploadFile(f, false);
+                  uploadFile(f, "file");
+                }}
+              />
+              <input
+                ref={audioInputRef}
+                type="file"
+                accept="audio/*"
+                hidden
+                onChange={(e) => {
+                  const f = e.target.files?.[0];
+                  e.target.value = "";
+                  uploadFile(f, "audio");
                 }}
               />
             </div>
